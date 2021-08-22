@@ -6,7 +6,7 @@ import java.util.List;
 public class ClassInfo
 {
     private static ClassInfo classInfo = new ClassInfo();
-    private int theNumberOfStudent;
+    private int theNumberOfStudent=22;
 
     private static List<String> listOfSavingProduct = new ArrayList<String>();
     private ClassInfo() { }

@@ -9,12 +9,14 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 
@@ -32,7 +34,7 @@ public class WorkActivity extends AppCompatActivity implements View.OnClickListe
 
     Spinner numberSpinner;
     Spinner nameSpinner;
-    ArrayAdapter<String> numberAdapter;
+    ArrayAdapter<Integer> numberAdapter;
     ArrayAdapter<String> nameAdapter;
 
 
@@ -44,6 +46,7 @@ public class WorkActivity extends AppCompatActivity implements View.OnClickListe
     Integer[] arrayForStudentNumber;
 
     int size;
+    int number;
 
 
 
@@ -65,6 +68,8 @@ public class WorkActivity extends AppCompatActivity implements View.OnClickListe
         registerSaving_Btn=findViewById(R.id.WorkActivity_Btn_RegisterSaving);
         checkSavingList_Btn=findViewById(R.id.WorkActivity_Btn_CheckSavingList);
         closeSaving_Btn=findViewById(R.id.WorkActivity_Btn_CloseSaving);
+
+        arrayForStudentNumber= initializeArray(classInfo.getTheNumberOfStudent());
 
 
 
@@ -150,7 +155,7 @@ public class WorkActivity extends AppCompatActivity implements View.OnClickListe
                             }
                         });
 
-                        savingAmount_Dialog_Edit= findViewById(R.id.EnterSavingAmountDialog_edit_Amount);
+
                         enterSavingAmountDialog();
                     }
                 })
@@ -174,27 +179,24 @@ public class WorkActivity extends AppCompatActivity implements View.OnClickListe
         AlertDialog.Builder builder = new AlertDialog.Builder(WorkActivity.this);
         LayoutInflater inflater = WorkActivity.this.getLayoutInflater();
 
-        builder.setView(inflater.inflate(R.layout.dialog_work_bankteller_enter_saving_amount,null))
-                .setView(savingAmount_Dialog_Edit)
+        View view = inflater.inflate(R.layout.dialog_work_bankteller_enter_saving_amount,null);
+        savingAmount_Dialog_Edit= view.findViewById(R.id.EnterSavingAmountDialog_edit_Amount);
+
+        builder.setView(view)
                 .setPositiveButton("확인", new DialogInterface.OnClickListener()
                 {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i)
                     {
 
+                        Log.d("!!!",savingAmount_Dialog_Edit.getText().toString());
 
                         int amount = Integer.valueOf(savingAmount_Dialog_Edit.getText().toString());
                         saving.setAmount(amount);
                         Log.d("TAG!!!",Double.toString(saving.getRate()));
-                        arrayForStudentNumber=Arrays. initializeArray(classInfo.getTheNumberOfStudent());
 
-                        numberSpinner=findViewById(R.id.EnterStudentInfoDialog_spinner_Number);
-                        numberAdapter=new ArrayAdapter<Integer>(WorkActivity.this,R.layout.support_simple_spinner_dropdown_item,arrayForStudentNumber);
+                        enterStudentInfoDialog();
 
-
-                        nameSpinner=findViewById(R.id.EnterStudentInfoDialog_spinner_Name);
-                        nameAdapter =new ArrayAdapter<String>(WorkActivity.this,R.layout.support_simple_spinner_dropdown_item,arrayForStudentName);
-                        nameSpinner.setAdapter(nameAdapter);
                     }
                 })
                 .setNegativeButton("취소", new DialogInterface.OnClickListener()
@@ -215,7 +217,32 @@ public class WorkActivity extends AppCompatActivity implements View.OnClickListe
         AlertDialog.Builder builder = new AlertDialog.Builder(WorkActivity.this);
         LayoutInflater inflater = WorkActivity.this.getLayoutInflater();
 
-        builder.setView(inflater.inflate(R.layout.dialog_work_bankteller_enter_student_info,null))
+        View view = inflater.inflate(R.layout.dialog_work_bankteller_enter_student_info,null);
+
+
+
+
+        numberSpinner=(Spinner)view.findViewById(R.id.EnterStudentInfoDialog_spinner_Number);
+        numberAdapter=new ArrayAdapter<>(getApplicationContext(),R.layout.support_simple_spinner_dropdown_item,arrayForStudentNumber);
+        numberSpinner.setAdapter(numberAdapter);
+        numberSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener()
+        {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l)
+            {
+                number=Integer.valueOf(adapterView.getItemAtPosition(i).toString());
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView)
+            {
+
+            }
+        });
+
+
+
+        builder.setView(view)
                 .setPositiveButton("확인", new DialogInterface.OnClickListener()
                 {
                     @Override
@@ -264,9 +291,9 @@ public class WorkActivity extends AppCompatActivity implements View.OnClickListe
         builder.show();
     }
 
-    private int[] initializeArray(int size)
+    private Integer[] initializeArray(int size)
     {
-        int[] array= new int[size];
+        Integer[] array= new Integer[size];
         for (int i=1;i<=size; i++)
         {
             array[i-1]=i;
