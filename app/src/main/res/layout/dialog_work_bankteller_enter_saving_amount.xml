@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:scaleType="center"
+        android:background="#FFFFBB33"
+        android:text="월 예금 금액 입력"
+        android:padding="20dp">
+
+    </TextView>
+
+   <LinearLayout
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"
+       android:orientation="horizontal"
+       android:layout_weight="1"
+       >
+       <TextView
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_weight="1"
+           android:scaleType="center"
+           android:text="금액 입력"
+           android:layout_marginTop="16dp"
+           android:layout_marginLeft="10dp"
+           android:layout_marginRight="4dp"
+           android:layout_marginBottom="4dp">
+
+       </TextView>
+
+
+       <EditText
+           android:id="@+id/EnterSavingAmountDialog_edit_Amount"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_weight="2"
+           android:hint="예금 금액"
+           android:inputType="number"
+           android:layout_marginTop="16dp"
+           android:layout_marginLeft="4dp"
+           android:layout_marginRight="4dp"
+           android:layout_marginBottom="4dp">
+
+       </EditText>
+
+   </LinearLayout>
+
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:layout_weight="1"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:scaleType="center"
+            android:text="예상 금액"
+            android:layout_marginTop="16dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="4dp"
+            android:layout_marginBottom="4dp">
+
+        </TextView>
+
+        <TextView
+            android:id="@+id/EnterSavingAmountDialog_text_Amount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:scaleType="center"
+            android:text="예상 금액"
+            android:layout_marginTop="16dp"
+            android:layout_marginLeft="4dp"
+            android:layout_marginRight="4dp"
+            android:layout_marginBottom="4dp">
+
+        </TextView>
+    </LinearLayout>
+
+</LinearLayout>

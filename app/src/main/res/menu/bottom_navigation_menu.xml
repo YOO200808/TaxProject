@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/page_objects"
+        android:enabled="true"
+        android:icon="@drawable/ic_baseline_emoji_objects_24"
+        android:title="object"/>
+    <item
+        android:id="@+id/page_money"
+        android:enabled="true"
+        android:icon="@drawable/ic_baseline_money_24"
+        android:title="money"/>
+    <item
+        android:id="@+id/page_home"
+        android:enabled="true"
+        android:icon="@drawable/ic_baseline_home_24"
+        android:title="home"/>
+    <item
+        android:id="@+id/page_dashboard"
+        android:enabled="true"
+        android:icon="@drawable/ic_baseline_dashboard_24"
+        android:title="dashboard"/>
+    <item
+        android:id="@+id/page_info"
+        android:enabled="true"
+        android:icon="@drawable/ic_baseline_info_24"
+        android:title="info"/>
+</menu>

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "978872374992",
+    "project_id": "taxpro-f95db",
+    "storage_bucket": "taxpro-f95db.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:978872374992:android:fda7d7bf09494e2e7470d5",
+        "android_client_info": {
+          "package_name": "com.example.taxpro"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "978872374992-l6pta5tf0ki62l0f4llk267kktog99n0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDkk_XOXGGezRsmo6pb0a7eJJ5JVCNywgE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "978872374992-l6pta5tf0ki62l0f4llk267kktog99n0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
